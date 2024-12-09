@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Porfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("S__43147269.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+
+.blockimg {
+    display: inline-block;
+}
+
+#backBtn {
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 1rem;
+        color: #fff;
+        background: #333;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-blue-grey">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-blue-grey">ME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-blue-grey">PERSONAL-INFO</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-blue-grey">CERTIFICATES</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-blue-grey">CONTACTS</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag w3-blue-grey">Natthanita Suradet</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">PORT<br>FOLIO</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Surawiwat School</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-light-grey w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+    <div class="w3-content" style="max-width:700px">
+      <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide w3-blue-grey">Personal Information</span></h5>
+      
+  
+      <div class="personal-details">
+        <h5 class="w3-tag w3-blue-grey">Basic Information</h5>
+        <p><strong>Full Name:</strong> Natthanita Suradet</p>
+        <p><strong>Nickname:</strong> Nita</p>
+        <p><strong>Date of Birth:</strong> 1 November 2007</p>
+        <p><strong>Nationality:</strong> Thai</p>
+        
+      </div>
+  
+      <div class="education-section">
+        <h5 class="w3-tag w3-blue-grey">Education</h5>
+        <p><strong>High School</strong>
+          <ul>
+            <li>2020 - 2024</li>
+            <li>Surawiwat School, Suranaree University of Technology</li>
+            <li>Program: SCiUS (Specify any special programs)</li>
+            <li>GPA: 3.98</li>
+          </ul>
+        </p>
+  
+        <p><strong>Elementary School</strong>
+          <ul>
+            <li>2013 - 2019</li>
+            <li>Sarasas Withead Nakhonratchasima School</li>
+            <li>Program: Bilingual</li>
+            <li>GPA: 4.00</li>
+          </ul>
+        </p>
+      </div>
+  
+      <div class="skills-section">
+        <h5 class="w3-tag w3-blue-grey">Skills</h5>
+        <ul>
+          <li><strong>Technical Skills:</strong> 
+            <ul>
+              <li>Programming Languages: [e.g., Python, C, C++]</li>
+              <li>Software: [e.g., Microsoft Office]</li>
+              <li>Tools: [e.g., Git, VS Code, PyCharm, Dev-C]</li>
+            </ul>
+          </li>
+          <li><strong>Other Skills:</strong>
+            <ul>
+              <li>Sports</li>
+              <li>Art</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="interests-section">
+        <h5 class="w3-tag w3-blue-grey">Interests and Extracurricular Activities</h5>
+        <ul>
+          <li>Coding and Technology</li>
+          <li>Scientific Research</li>
+          <li>Volunteer Work</li>
+        </ul>
+      </div>
+  
+    </div>
+  </div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-blue-grey">Certificates</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Academics</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Activities</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      
+      <img src="S__43147270.jpg" style="width: 100%;" alt="pic3">
+      <h5><strong>Internship At SLRI</strong></h5>
+      <p class="w3-text-grey">80 hours of internship at SLRI</p><br>
+      
+  
+      <img src="S__43147272.jpg" style="width: 100%;" alt="pic3">
+      <h5><strong>POSN</strong></h5>
+      <p class="w3-text-grey">POSN Computer camp 1 in 2566BE & 2567BE</p><br>
+    
+      <img src="S__43147275.jpg" style="width: 100%;" alt="pic3">
+      <h5><strong>Computer Hackathon</strong></h5>
+      <p class="w3-text-grey">Paticipate in C++ coding competition</p><br>
+    
+      <img src="S__43147273.jpg" style="width: 100%;" alt="pic3">
+      <h5><strong>English Competition</strong></h5>
+      <p class="w3-text-grey">Silver medal in English competition</p>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+        <img src="S__43147276.jpg" style="width: 100%;" alt="pic3">
+        <h5><strong>Badminton</strong></h5>
+        <p class="w3-text-grey">Paticipate in badminton competitions</p><br>
+        
+    
+        <img src="S__43147278.jpg" style="width: 100%;" alt="pic3">
+        <h5><strong>B4UGO School Concert</strong></h5>
+        <p class="w3-text-grey">B4UGO school concert organizer</p><br>
+      
+        <img src="S__43147279.jpg" style="width: 100%;" alt="pic3">
+        <h5><strong>ASASAPA</strong></h5>
+        <p class="w3-text-grey">Paticipate in Volunteer camp and be an organizer</p><br>
+      
+        <img src="S__43147280.jpg" style="width: 100%;" alt="pic3">
+        <h5><strong>Coding Bootcamp By DEPA</strong></h5>
+        <p class="w3-text-grey">Get 4th place in coding competion</p>
+</div>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide w3-blue-grey">Contacts</span></h5>
+    <!-- ====================================== -->
+    <p>Phone: <a href="tel:+66855647635">085-5647635</a></p>
+    <p>Email: <a href="mailto:natthanita.suradet@gmail.com">natthanita.suradet@gmail.com</a></p>
+    <!-- ====================================== -->
+     <br>
+    </span> Thank you for reading!</span>
+    <br>
+    <a href="../all.html" class="btn" id="backBtn">ย้อนกลับ</a>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

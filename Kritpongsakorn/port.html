@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Kritpongsakorn Pimolpat</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 1rem;
+      color: #fff;
+      background: #333;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #000, #555);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      font-size: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .hero a {
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      font-size: 2rem;
+      color: #fff;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* About Section */
+    #about {
+      background: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    #about img {
+      width: 200px;
+      border-radius: 50%;
+      margin: 20px auto;
+    }
+
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Skills Section */
+    #skills {
+      background: #333;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      flex: 1;
+      min-width: 150px;
+      padding: 20px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-10px);
+      background: #444;
+    }
+
+    /* Portfolio Section */
+    #portfolio {
+      background: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .portfolio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-description {
+      display: none;
+      text-align: left;
+      padding: 10px;
+      background: #f4f4f4;
+      margin-top: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-item:hover .portfolio-description {
+      display: block;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: #333;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    form button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      color: #fff;
+      background: #555;
+    }
+
+    form button:hover {
+      background: #777;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Scroll-to-top button */
+    #scrollTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+
+    #backBtn {
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 1rem;
+        color: #fff;
+        background: #333;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        display: inline-block;
+    }
+
+#backBtn:hover {
+  background: #555;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div>
+      <h1>Kritpongsakorn Pimolpat</h1>
+      <p>TRIAMUDOMSUKSAPATTHANAKARNSUWANNABGUMISCHOOL</p>
+      <a href="#about" class="btn">Learn More</a>
+      <br>
+      <a href="../all.html" class="btn" id="backBtn">ย้อนกลับ</a>
+      <div class="scroll-down">↓</div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="kek.jpg" alt="Profile Photo">
+    <div class="personal-info">
+      <h3>ชื่อ-นามสกุล</h3>
+      <p>กฤศพงศกรณ์ พิมลพัชร์</p>
+  
+      <h3>ประวัติส่วนตัว</h3>
+      <p>อายุ: 15 ปี</p>
+      <p>เกิด: 5 ธันวาคม 2552</p>
+      <p>สัญชาติ: ไทย</p>
+      <p>ศาสนา: พุทธ</p>
+  
+      <h3>ความสามารถพิเศษ</h3>
+      <ul>
+        <li>ภาษาคอมพิวเตอร์: Python, Java, C, C++, C++, Css, HTML</li>
+        <li>ทักษะการเป็นผู้นำ</li>
+        <li>ทักษะการทำงานเป็นทีม</li>
+        <li>ทักษะการวิเคราะห์ข้อมูล Cyber Security</li>
+      </ul>
+  
+      <h3>การศึกษา</h3>
+      <p>กำลังศึกษาที่โรงเรียน ต.อ.พ.ภ.</p>
+      <p>โครงการ Gifted วิทยาศาสตร์คอมพิวเตอร์</p>
+  
+      <h3>อาชีพในฝัน</h3>
+      <p>Social Cyber Security</p>
+  
+      <h3>ข้อมูลติดต่อ</h3>
+      <p>โทรศัพท์: 095-856-0404</p>
+      <p>Email: k.porsonsun@gmail.com</p>
+      <p>Line: S6sonsun</p>
+    </div>
+  </section>
+  
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-gallery">
+      <div class="portfolio-item">
+        <img src="kaset.jpg" alt="Project 1">
+        <div class="portfolio-info">เข้าร่วมกิจกรรม "KU ENGINEERING OPEN HOUSE" ระหว่างวันที่ 26-27 กรกฎาคม พ.ศ. 2567 เพื่อเตรียมความพร้อมสำหรับการเข้าศึกษาต่อในระดับมหาวิทยาลัย ด้วยความกระตือรือร้นและตั้งใจจริง โดยได้รับการรับรองจากศาสตราจารย์ ดร.วันชัย ยอดสุขใจ คณบดีคณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 1, explaining the tools, technologies, and challenges faced during its development.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="kmitl open.jpg" alt="Project 2">
+        <div class="portfolio-info">เข้าร่วมกิจกรรม K-Engineering World Tour and Workshop 2024 ระหว่างวันที่ 2 - 4 สิงหาคม พ.ศ. 2567 ณ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าลาดกระบัง (KMITL)</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 2, explaining the design decisions, technologies used, and outcomes.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="kmitl open1.jpg" alt="Project 3">
+        <div class="portfolio-info">เข้าร่วมกิจกรรม KMITL Open House 2024 ในหัวข้อ Digital Life & Smart Campus ณ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง ระหว่างวันที่ 27-28 เมษายน 2567 โดยได้รับการรับรองจากรองศาสตราจารย์ ดร.คมสัน มาลีสี อธิการบดีของสถาบันฯ</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 3, covering the problem-solving approach, technologies, and final results.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="NCSA Cyber Hygiene-10 (1).jpg" alt="Project 4">
+        <div class="portfolio-info">เข้าร่วมการอบรมเชิงปฏิบัติการหลักสูตร Cyber Hygiene (ผ่านสื่ออิเล็กทรอนิกส์) ภายใต้กิจกรรมค่ายเยาวชนไซเบอร์ (Cyber Youth Camp) โดยได้รับการรับรองจาก พลอากาศตรี อมร ชมเชย เลขาธิการคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ (NCSA) เมื่อวันที่ 22 กันยายน พ.ศ. 2567</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 4, explaining the development process and technology stack used.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="tcas.jpg" alt="Project 5">
+        <div class="portfolio-info">เข้าร่วมกิจกรรม TCAS DeK-D's Study Abroad Fair ระหว่างวันที่ 27-28 เมษายน พ.ศ. 2567 โดยสำเร็จครบถ้วนตามกำหนดการ เพื่อเตรียมพร้อมสำหรับการศึกษาต่อในระดับมหาวิทยาลัย ด้วยความกระตือรือร้นและตั้งใจจริง โดยออกให้ ณ วันที่ 10 พฤษภาคม พ.ศ. 2567 จาก Dek-D Interactive Co., Ltd.</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 5, showcasing the creative process and final product.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="stem1.jpg" alt="Project 6">
+        <div class="portfolio-info">เข้าร่วมกิจกรรมค่าย STEM "แรงบันดาลใจจากธรรมชาติ" ระหว่างวันที่ 21-23 ตุลาคม 2566 ณ ศูนย์พัฒนาชนบทผสมผสานซับใต้ อำเภอปากช่อง จังหวัดนครราชสีมา</div>
+        <div class="portfolio-description">
+          <p>This is a detailed description of Project 6, detailing the features and impact of the project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Kritpongsakorn Pimolpat. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scroll-to-top Button -->
+  <div id="scrollTop">↑</div>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll-to-top functionality
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

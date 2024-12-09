@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose File</title>
+    <style>
+        /* พื้นหลังแบบไล่สี */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.8) 0%, rgba(37, 117, 252, 0.8) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* เพิ่มพื้นหลังภาพ */
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1; /* ทำให้ปุ่มอยู่เหนือภาพ */
+        }
+
+        h1 {
+            font-size: 2em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        /* ปุ่มที่กลมกลืนกับพื้นหลัง */
+        .button {
+            background-color: rgba(255, 255, 255, 0.3); /* พื้นหลังโปร่งใส */
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5); /* ขอบที่เบลอและกลืนไปกับพื้นหลัง */
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.6); /* เปลี่ยนพื้นหลังเมื่อ hover */
+            color: black;
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        /* Animation for the cat image */
+        .cat {
+            position: absolute;
+            width: 100px;
+            animation: moveCat 5s linear infinite;
+            opacity: 0.4; /* ลดความทึบของภาพแมว */
+        }
+
+        @keyframes moveCat {
+            0% {
+                left: -120px;
+                top: 50%;
+                transform: rotate(0deg);
+            }
+            50% {
+                left: 50%;
+                top: 30%;
+                transform: rotate(180deg);
+            }
+            100% {
+                left: 100%;
+                top: 50%;
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Our Portfolio</h1>
+        <button class="button" onclick="window.location.href='Kritpongsakorn/port.html'">Kritpongsakorn Pimolpat</button>
+        <button class="button" onclick="window.location.href='Natthanita/port2.html'">Natthanita Suradet</button>
+    </div>
+
+    <!-- Cat image -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIqyblMU2cUv3oeHWquczJz77dbufSXTI2A&s" alt="Moving Cat" class="cat">
+
+</body>
+</html>
