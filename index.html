@@ -168,51 +168,50 @@
     
 
     <script>
-        let score=0
+        let score = 0;
+        let catCount = 0; // ตัวนับจำนวนแมวในหน้าจอ
+        const maxCats = 10; // กำหนดจำนวนแมวสูงสุด
         // ฟังก์ชันสร้างแมว
         function createCat() {
             
-            const cat = document.createElement('img');
-            cat.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIqyblMU2cUv3oeHWquczJz77dbufSXTI2A&s'; // URL รูปแมว
-            cat.className = 'cat';
+            if (catCount >= maxCats) return; // หยุดหากมีแมวครบแล้ว
 
-            // กำหนดตำแหน่งแบบสุ่ม
-            const randomX = Math.random() * window.innerWidth;
-            const randomY = Math.random() * window.innerHeight;
-            cat.style.left = `${randomX}px`;
-            cat.style.top = `${randomY}px`;
+        const cat = document.createElement('img');
+        cat.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIqyblMU2cUv3oeHWquczJz77dbufSXTI2A&s'; // URL รูปแมว
+        cat.className = 'cat';
 
-            // เพิ่มแมวลงในหน้าจอ
-            document.body.appendChild(cat);
+        // กำหนดตำแหน่งแบบสุ่ม
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+        cat.style.left = `${randomX}px`;
+        cat.style.top = `${randomY}px`;
 
-            // เมื่อคลิกแมว
-            cat.addEventListener('click', (event) => {
-                // สร้างเอฟเฟกต์ระเบิด
-                const explosion = document.createElement('div');
-                explosion.className = 'explosion';
-                explosion.style.left = `${event.clientX - 50}px`;
-                explosion.style.top = `${event.clientY - 50}px`;
-                document.body.appendChild(explosion);
+        document.body.appendChild(cat);
+        catCount++; // เพิ่มจำนวนแมวในหน้าจอ
 
-                // ลบแมว
-                cat.remove();
+        // เมื่อคลิกแมว
+        cat.addEventListener('click', (event) => {
+            // สร้างเอฟเฟกต์ระเบิด
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.style.left = `${event.clientX - 50}px`;
+            explosion.style.top = `${event.clientY - 50}px`;
+            document.body.appendChild(explosion);
 
-                // ลบเอฟเฟกต์ระเบิด
-                setTimeout(() => explosion.remove(), 500);
+            cat.remove(); // ลบแมว
+            catCount--; // ลดจำนวนแมวในหน้าจอ
 
-                score += 1;
-                console.log(score)
-                document.getElementById('score').innerText = score;
+            setTimeout(() => explosion.remove(), 500); // ลบเอฟเฟกต์ระเบิด
 
-                // เช็คคะแนนครบ 20
-                if (score === 20) {
-                    createMeteorShower();
-                    score = 0
-                }
+            score++;
+            document.getElementById('score').innerText = score;
 
-            }); }
-
-            // ตั้งเวลาให้แมวหายไปเองหลัง 10 วินาที
+            // เช็คคะแนนครบ 20
+            if (score === 20) {
+                createMeteorShower();
+                score = 0;
+            }
+        }); }
 
             
 
