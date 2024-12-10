@@ -162,39 +162,40 @@ body, html {
       
       <img src="S__43147270.jpg" style="width: 100%;" alt="pic3">
       <h5><strong>Internship At SLRI</strong></h5>
-      <p class="w3-text-grey">80 hours of internship at SLRI</p><br>
+      <p class="w3-text-grey">I completed an 80-hour internship at the Synchrotron Light Research Institute (SLRI), where I gained hands-on experience and valuable insights into the field. During this internship, I had the opportunity to work on practical projects, collaborate with professionals, and enhance my knowledge in a real-world scientific research environment.</p><br>
       
   
       <img src="S__43147272.jpg" style="width: 100%;" alt="pic3">
       <h5><strong>POSN</strong></h5>
-      <p class="w3-text-grey">POSN Computer camp 1 in 2566BE & 2567BE</p><br>
+      <p class="w3-text-grey">I participated in the POSN Computer Camp 1 during the years 2566 BE and 2567 BE. This program provided foundational training in computer science and programming, offering opportunities to develop problem-solving skills, collaborate with like-minded peers, and engage in computational thinking through practical exercises and workshops.
+      </p><br>
     
       <img src="S__43147275.jpg" style="width: 100%;" alt="pic3">
       <h5><strong>Computer Hackathon</strong></h5>
-      <p class="w3-text-grey">Paticipate in C++ coding competition</p><br>
+      <p class="w3-text-grey">I participated in a C++ coding competition, where I showcased my programming skills and problem-solving abilities. The event provided an excellent platform to apply my knowledge of C++ in real-world scenarios, collaborate with fellow participants, and gain valuable experience in competitive coding.</p><br>
     
       <img src="S__43147273.jpg" style="width: 100%;" alt="pic3">
       <h5><strong>English Competition</strong></h5>
-      <p class="w3-text-grey">Silver medal in English competition</p>
+      <p class="w3-text-grey">I was awarded a silver medal in an English competition, recognizing my proficiency in the language and my ability to excel in various aspects such as grammar, vocabulary, comprehension, and communication. This achievement reflects my dedication to honing my language skills and engaging in academic challenges.</p>
     </div>
 
     <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
         <img src="S__43147276.jpg" style="width: 100%;" alt="pic3">
         <h5><strong>Badminton</strong></h5>
-        <p class="w3-text-grey">Paticipate in badminton competitions</p><br>
+        <p class="w3-text-grey">I actively participated in badminton competitions, showcasing my skills, sportsmanship, and dedication to the sport. These events provided opportunities to compete with talented players, improve my techniques, and develop teamwork and strategic thinking on the court.</p><br>
         
     
         <img src="S__43147278.jpg" style="width: 100%;" alt="pic3">
         <h5><strong>B4UGO School Concert</strong></h5>
-        <p class="w3-text-grey">B4UGO school concert organizer</p><br>
+        <p class="w3-text-grey">I served as an organizer for the B4UGO school concert, where I contributed to planning, coordinating, and managing various aspects of the event. This role involved teamwork, problem-solving, and leadership skills to ensure the concert's success and provide an enjoyable experience for attendees.</p><br>
       
         <img src="S__43147279.jpg" style="width: 100%;" alt="pic3">
         <h5><strong>ASASAPA</strong></h5>
-        <p class="w3-text-grey">Paticipate in Volunteer camp and be an organizer</p><br>
+        <p class="w3-text-grey">I participated in a volunteer camp and took on the role of an organizer, contributing to both the execution and planning of the camp's activities. This experience allowed me to develop leadership, teamwork, and organizational skills while making a positive impact on the community through meaningful volunteer work.</p><br>
       
         <img src="S__43147280.jpg" style="width: 100%;" alt="pic3">
         <h5><strong>Coding Bootcamp By DEPA</strong></h5>
-        <p class="w3-text-grey">Get 4th place in coding competion</p>
+        <p class="w3-text-grey">I achieved 4th place in a coding competition, demonstrating my programming skills and ability to solve complex problems under time constraints. This experience allowed me to enhance my technical knowledge, apply creative thinking, and gain valuable insights into competitive coding.</p>
 </div>
 
 <!-- Contact/Area Container -->
@@ -207,7 +208,7 @@ body, html {
     <!-- ====================================== -->
      <br>
     </span> Thank you for reading!</span>
-    <br>
+    <br><br>
     <a href="../index.html" class="btn" id="backBtn">ย้อนกลับ</a>
   </div>
 </div>
@@ -216,7 +217,41 @@ body, html {
 </div>
 
 <script>
-// Tabbed Menu
+
+//============================================
+
+// Smooth scroll function
+function smoothScroll(target) {
+    const element = document.querySelector(target);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Add event listeners to navigation links
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all navigation links
+    const navLinks = document.querySelectorAll('.w3-row .w3-button');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            
+            // Get the target section based on the href
+            const targetId = link.getAttribute('href');
+            
+            // Scroll smoothly to the target section
+            if (targetId !== '#') {
+                smoothScroll(targetId);
+            }
+        });
+    });
+});
+
+// Existing tabbed menu function (kept from original code)
 function openMenu(evt, menuName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("menu");
@@ -231,6 +266,8 @@ function openMenu(evt, menuName) {
   evt.currentTarget.firstElementChild.className += " w3-dark-grey";
 }
 document.getElementById("myLink").click();
+
+//==========================================
 </script>
 
 </body>

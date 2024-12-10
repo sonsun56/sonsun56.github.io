@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click the Cats!</title>
+    <title>Styled Button</title>
     <style>
         /* พื้นหลังแบบไล่สี */
         body {
@@ -67,20 +68,29 @@
 
         /* ปุ่มที่กลมกลืนกับพื้นหลัง */
         .button {
-            background-color: rgba(255, 255, 255, 0.3); /* พื้นหลังโปร่งใส */
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5); /* ขอบที่เบลอและกลืนไปกับพื้นหลัง */
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
-        }
+  position: relative;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: #202025;
+  color: #AEACB0;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0));
+  transform: translateX(-201%);
+  filter: blur(5px);
+  animation: shine 6s linear infinite 0.5s;
+}
 
         .button:hover {
             background-color: rgba(255, 255, 255, 0.6); /* เปลี่ยนพื้นหลังเมื่อ hover */
@@ -145,6 +155,69 @@
             border-radius: 5px;
         }
 
+        .ourbutton {
+  font-weight: 900;
+  font-size: 4vw;
+  color: #1f202000;
+  position: relative;
+  background-clip: text;
+  -webkit-background-clip: text; /* สำหรับเบราว์เซอร์ที่รองรับ WebKit */
+  overflow: clip;
+  background-color: #fefcef;
+}
+.ourbutton:before,
+.ourbutton:after {
+  content: '';
+  position: absolute;
+  background-color: #3cf5;
+  width: 180%;
+  top: 50%;
+  left: 50%;
+  aspect-ratio: 1;
+  transform: translate(-50%, 0);
+  border-top-left-radius: 60% 80%;
+  border-top-right-radius: 50% 80%;
+  border-bottom-left-radius: 60% 80%;
+  border-bottom-right-radius: 50% 80%;
+  mix-blend-mode: multiply;
+  animation: rot 10s linear infinite;
+}
+.ourbutton:after {
+  animation-delay: -4s;
+  animation-duration: 8s;
+}
+
+b {
+  position: fixed;
+  color: white;
+  padding: 1rem;
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.8);
+}
+* {
+  overflow: hidden;
+  background: black;
+}
+
+@keyframes rot {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-201%);
+  }
+  50% {
+    transform: translateX(201%);
+  }
+  100% {
+    transform: translateX(201%);
+  }
+}
+
+
     </style>
 </head>
 <body>
@@ -154,7 +227,7 @@
 <body>
 
     <div class="container">
-        <h1>Our Portfolio</h1>
+        <div class="ourbutton">Our Portfolio</div>
         <button class="button" onclick="window.location.href='Kritpongsakorn/port.html'">Kritpongsakorn Pimolpat</button>
         <button class="button" onclick="window.location.href='Natthanita/port2.html'">Natthanita Suradet</button>
     </div>
@@ -233,6 +306,114 @@
 
         // สร้างแมวใหม่ทุก 2 วินาที
         setInterval(createCat, 1500);
+
+        const canvas = document.createElement('canvas')
+document.body.append(canvas)
+canvas.width = innerWidth * 2
+canvas.height = innerHeight * 2
+document.body.style.margin = 0
+const ctx = canvas.getContext('2d')
+const width = canvas.width
+const height = canvas.height
+canvas.style.width = innerWidth + 'px'
+canvas.style.height = innerHeight + 'px'
+ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+ctx.fillRect(0, 0, width, height)
+ 
+
+let mx = 0,
+  my = 0
+onpointermove = (e) => {
+  mx = e.clientX - innerWidth
+  my = e.clientY / 300
+}
+
+const r = (n = 1) => Math.random() * n
+
+function dejong(anchorX, anchorY) {
+  const aOffset = (Math.random() - 0.5) * 2
+  const bOffset = (Math.random() - 0.5) * 2
+  const cOffset = (Math.random() - 0.5) * 2
+  const dOffset = (Math.random() - 0.5) * 2
+
+  let sx = Math.random() * 2 - 1
+  let sy = Math.random() * 2 - 1
+  let s = 20 + 240 * Math.random() * Math.random()
+
+  let msx = 1 / (10 + Math.random() * 1000)
+  let msy = 1 / (100 + Math.random() * 1000)
+
+  let ox = 0
+  //if (Math.random() < .3) ox = innerWidth
+  //if (Math.random() < .1) ox = -innerWidth
+
+  let fns = []
+  for (let i = 0; i < 4; i++) fns.push(['sin', 'cos'][~~r(2)])
+
+  let t = 0
+  let rr = Math.PI * 2 * Math.random()
+  return function () {
+    const a = 1.4 + aOffset + (mx + ox) * msx
+    const b = -2.3 + bOffset + my * msy
+    const c = 2.4 + cOffset + my * msy
+    const d = -2.1 + dOffset - (mx + ox) * msx
+
+    let x = sx + t
+    let y = sy + t
+    t += 0.0001
+
+    ctx.translate(anchorX, anchorY)
+    ctx.rotate(rr)
+    for (let i = 0; i < 500; i++) {
+      let newX = Math[fns[0]](a * y) - Math[fns[2]](b * x)
+      let newY = Math[fns[1]](c * x) - Math[fns[3]](d * y)
+      x = newX
+      y = newY
+
+      const plotX = x * s
+      const plotY = y * s
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 1)'
+      ctx.fillRect(plotX, plotY, 2, 2)
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
+  }
+}
+
+let attractors = []
+
+function gen() {
+  attractors = []
+  for (let i = 0; i < 20; i++) {
+    attractors.push(dejong(Math.random() * width, Math.random() * height))
+  }
+}
+gen()
+
+let tim
+onresize = e => {
+  canvas.width = innerWidth * 2
+  canvas.height = innerHeight * 2
+  canvas.style.width = innerWidth + 'px'
+  canvas.style.height = innerHeight + 'px'
+ 
+  clearTimeout(tim)
+  tim = setTimeout(() => {
+     attractors = []
+     gen()
+  }, 200)
+}
+
+onclick = gen
+
+function loop() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+  attractors.forEach((fn) => fn())
+  requestAnimationFrame(loop)
+}
+loop()
     </script>
 </body>
 </html>
